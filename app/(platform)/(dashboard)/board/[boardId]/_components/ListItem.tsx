@@ -6,7 +6,8 @@ import ListHeader from "./ListHeader";
 import CardForm from "./CardForm";
 import { cn } from "@/lib/utils";
 import CardItem from "./CardItem";
-import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
+import { Droppable, Draggable } from "@hello-pangea/dnd";
+import { List } from "@prisma/client";
 
 interface IListItemProps {
   data: ListWithCards;
@@ -51,7 +52,7 @@ const ListItem = ({ data, index }: IListItemProps) => {
                   )}
                 >
                   {data.cards.map((card, idx) => (
-                    <CardItem key={card.id} index={idx} data={card} />
+                    <CardItem key={card.id} index={idx} data={{...card, list: data as List, links: card.links, images: card.images}} />
                   ))}
                   {provided .placeholder}
                 </ol>

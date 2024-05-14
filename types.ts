@@ -1,6 +1,10 @@
 import { Card, Link, List, ImageCard } from "@prisma/client";
 
-export type ListWithCards = List & { cards: Card[]  };
+// export type ListWithCards = List & { cards: Card[]  };
+
+export type ListWithCards = List & { 
+  cards: (Card & { links: Link[]; images: ImageCard[] })[]; 
+};
 
 export type CardWithList = Card & {
   list: List;

@@ -4,7 +4,7 @@ import { unsplash } from "@/lib/unsplash";
 import { cn } from "@/lib/utils";
 import { Check, Loader2 } from "lucide-react";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { ElementRef, useEffect, useRef, useState } from "react";
 import { useFormStatus } from "react-dom";
 import Link from "next/link";
 import FormErrors from "./FormErrors";
@@ -22,6 +22,7 @@ const FormPicker = ({ id, errors }: FormPickerProps) => {
   const [images, setImages] = useState<Array<Record<string, any>>>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedImageId, setSelectedImageId] = useState<string | null>(null);
+
   const { user } = useUser();
   const { organization: org } = useOrganization();
 
@@ -115,9 +116,9 @@ const FormPicker = ({ id, errors }: FormPickerProps) => {
               name={id}
               id={id}
               className="hidden"
-              checked={selectedImageId === img.id}
+              defaultChecked={selectedImageId === img.id}
               disabled={pending}
-              value={`${img.id}|${img.urls.thumb}|${img.urls.full}|${img.links.html}|${img.user.name}`}
+              defaultValue={`${img.id}|${img.urls.thumb}|${img.urls.full}|${img.links.html}|${img.user.name}`}
             />
             <Image
               src={img.urls.thumb}
@@ -149,7 +150,7 @@ const FormPicker = ({ id, errors }: FormPickerProps) => {
       <p className="text-xs text-right font-semibold text-neutral-600 mb-1">
         Upload your own
       </p>
-      <Input id="imageUploader" type="file" onChange={handleUploadOwnImage} />
+      <Input id="imageUploader" type="file" onChange={handleUploadOwnImage}/>
       <FormErrors id="imageUploader" errors={errors} />
       <FormErrors id="image" errors={errors} />
     </div>

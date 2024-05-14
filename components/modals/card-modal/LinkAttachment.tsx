@@ -103,7 +103,7 @@ const LinkAttachment = ({ cardId }: ILinkAttachmentProps) => {
         <div className="px-3 py-2 w-full">
           <form action={onSubmit} ref={formRef} className="space-y-2">
             <div className="flex gap-1 justify-between items-center">
-              <input hidden name="cardId" id="cardId" value={cardId} />
+              <input hidden name="cardId" id="cardId" defaultValue={cardId} />
               <div className="space-y-2">
                 <Label
                   htmlFor="source"

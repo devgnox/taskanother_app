@@ -79,7 +79,7 @@ const CardForm = forwardRef<HTMLTextAreaElement, ICardFormProps>(
             errors={fieldErrors}
             placeholder="Enter a title for this card..."
           />
-          <input hidden name="listId" id="listId" value={listId} />
+          <input hidden name="listId" id="listId"  defaultValue={listId} />
 
           <div className="flex items-center  gap-x-1 mt-1">
             <FormSubmit>Add Card</FormSubmit>

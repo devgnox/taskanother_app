@@ -71,7 +71,7 @@ const ListForm = () => {
             placeholder="Enter List Title"
             className="text-sm px-2 py-1 h-7 font-medium border-transparent hover:border-input focus:border-input transition"
           />
-          <input hidden value={params.boardId} name="boardId" />
+          <input hidden defaultValue={params.boardId} name="boardId" />
           <div className="flex items-center gap-x-1">
             <FormSubmit>Add List</FormSubmit>
             <Button
