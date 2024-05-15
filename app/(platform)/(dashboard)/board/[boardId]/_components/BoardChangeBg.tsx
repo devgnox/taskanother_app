@@ -39,6 +39,7 @@ const BoardChangeBg = ({ boardTitle }: IBoardChangeBgProps) => {
 
   const onSubmit = (formData: FormData) => {
     const image = formData.get("image") as string;
+    
     const boardId = params.boardId as string;
 
     execute({ image, id: boardId });

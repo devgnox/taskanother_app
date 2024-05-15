@@ -116,6 +116,7 @@ const FormPicker = ({ id, errors }: FormPickerProps) => {
               name={id}
               id={id}
               className="hidden"
+              checked={selectedImageId === img.id}
               defaultChecked={selectedImageId === img.id}
               disabled={pending}
               defaultValue={`${img.id}|${img.urls.thumb}|${img.urls.full}|${img.links.html}|${img.user.name}`}
